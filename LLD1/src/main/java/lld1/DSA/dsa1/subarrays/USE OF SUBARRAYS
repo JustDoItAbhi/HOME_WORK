@@ -1,0 +1,168 @@
+1. What is the Subarray Concept?
+
+A subarray is a continuous part of an array.
+
+Example array:
+[5, 2, 8, 7, 1]
+
+Subarrays include:
+
+[5]
+
+[5, 2]
+
+[2, 8, 7]
+
+[8, 7, 1]
+
+[1]
+
+Key rule:
+✔ Elements must be next to each other (contiguous).
+❌ You cannot skip elements → [5, 8] is not a subarray.
+
+Why do we use subarrays?
+
+Because many real-life problems require analyzing continuous time periods, such as:
+
+last 7 days stock prices
+
+last 10 seconds of network traffic
+
+30-day spending history
+
+continuous audio samples
+
+contiguous GPS movement
+
+→ All these are naturally represented as subarrays.
+
+🧠 2. Techniques Used for Subarray Problems
+
+Subarray problems often involve finding:
+
+maximum/minimum sum
+
+subarray counting
+
+longest window
+
+dynamic conditions inside a range
+
+To solve these efficiently, several famous techniques are used.
+
+⭐ Top Techniques for Subarray Problems
+1. **Prefix Sum**
+
+Used when you need fast sum of any subarray.
+
+Precompute prefix array
+
+Subarray sum = prefix[e] - prefix[s-1]
+
+Useful for:
+
+Range sum
+
+Range updates
+
+Frequency calculations
+
+2. Sliding Window
+
+Used when you need to process subarrays of fixed or variable size in O(n).
+
+Examples:
+
+Max sum subarray of size K
+
+Longest substring without repeating characters
+
+Finding subarray with given sum
+
+Very powerful for continuous ranges.
+
+3. Two Pointers
+
+Similar to sliding window but more flexible.
+
+Used for:
+
+Sorted arrays
+
+Sum problems
+
+Expand-shrink window logic
+
+Example: find number of subarrays with product < k.
+
+4. Kadane’s Algorithm
+
+Fastest way to find:
+
+maximum subarray sum
+
+maximum sum of any contiguous subarray
+
+Time complexity → O(n)
+
+Example:
+
+max sum in [-2,1,-3,4,-1,2,1,-5,4] = 6
+
+5. Difference Array (Range Update)
+
+Used when you need to apply many updates like:
+
+Add +10 to elements from index 3 to 7
+
+Add -5 to elements from index 1 to 4
+
+Difference array helps do all updates in O(q + n).
+
+6. HashMap Based Window
+
+Used when you need to track:
+
+frequency of elements
+
+unique elements
+
+constraints based on counts
+
+Examples:
+
+Longest subarray with at most K distinct numbers
+
+Longest repeating character sequence
+
+7. Binary Search + Prefix Sum
+
+Used when subarray answer is monotonic.
+
+Examples:
+
+Minimum subarray length with sum ≥ x
+
+Split array into m parts (LeetCode Hard)
+
+8. Deque Optimization
+
+Used for:
+
+Sliding window maximum
+
+Sliding window minimum
+
+Gives O(n) for problems that would be O(n*k).
+
+⭐ Summary Table
+Technique	When Used	Time
+Prefix Sum	Quick range sum	O(n)
+Sliding Window	Fixed/variable size windows	O(n)
+Two Pointers	Sorted arrays/ranges	O(n)
+Kadane’s Algorithm	Max subarray sum	O(n)
+Difference Array	Range update queries	O(n + q)
+HashMap Window	Count-based windows	O(n)
+Deque	Max/min in window	O(n)
+Binary Search + Prefix	Min window with monotonic condition	O(n log n)

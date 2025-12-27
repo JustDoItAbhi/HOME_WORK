@@ -1,0 +1,157 @@
+50 Subarray Practice Problems (Beginner → Advanced)
+
+Covers:
+✔ Sliding Window
+✔ Prefix Sum
+✔ Kadane’s
+✔ Two Pointers
+✔ Difference Array
+✔ HashMap Windows
+✔ Binary Search + Window
+
+🟢 BEGINNER LEVEL (0–15 days)
+Basic Subarray, Fixed Window, Kadane’s
+
+Print all subarrays of an array
+
+Sum of all subarrays
+
+Maximum sum subarray (Kadane’s Algorithm)
+
+Minimum sum subarray
+
+Maximum subarray of size K
+
+Minimum average subarray of size K
+
+Check if a subarray with sum = K exists (positive only)
+
+Count subarrays with sum < K (positive only)
+
+First subarray of size K with sum ≥ X
+
+Largest number in every subarray of size K (brute force)
+
+Find subarray with maximum product
+
+Count subarrays of size K with even sum
+
+Continuous subarray sum equals target (positive integers)
+
+Find the longest subarray of increasing elements
+
+Longest subarray with identical elements
+
+🟡 INTERMEDIATE LEVEL (prefix sum + sliding window)
+Prefix Sum, HashMap Windows, Two Pointers
+
+Subarray sum equals K (positives + negatives)
+
+Count number of subarrays with sum K
+
+Longest subarray with sum K
+
+Count subarrays divisible by K
+
+Count subarrays with XOR = K
+
+Maximum length subarray with equal 0s and 1s
+
+Find the longest subarray with at most K distinct integers
+
+Longest substring without repeating characters (same concept as subarray)
+
+Longest subarray with sum ≤ K (two pointers)
+
+Smallest subarray with sum ≥ K
+
+Number of subarrays with odd sum
+
+Number of subarrays with even sum
+
+Count subarrays with product < K
+
+Find subarray with sum closest to 0
+
+Second largest sum of subarrays (use prefix sums)
+
+🟠 ADVANCED LEVEL (sliding window, binary search, optimization)
+Hard problems requiring careful indexing
+
+Maximum sum of at most two non-overlapping subarrays
+
+Maximum sum of three non-overlapping subarrays
+
+Minimum operations to make subarray sum divisible by K
+
+Longest subarray where max-min ≤ K
+
+Longest subarray where frequency of each element ≤ K
+
+Longest subarray with absolute difference ≤ K
+
+Max points from cards (pick from ends → sliding window trick)
+
+Maximum sliding window using deque
+
+Sum of minimums of all subarrays
+
+Sum of maximums of all subarrays
+
+Largest rectangle in histogram (subarray stack trick)
+
+Find the Kth largest sum of subarrays
+
+Check if array has a continuous subarray of size ≥ 2 divisible by K
+
+Number of subarrays where max element appears at least K times
+
+Count subarrays with bounded maximum
+
+Minimum size subarray with XOR target
+
+Minimum number of subarrays to cover the array under condition X
+
+Maximum length subarray such that average <= K
+
+Split array into m subarrays such that largest sum is minimized
+
+Smallest subarray to be sorted to make whole array sorted
+
+⭐ BONUS: Categorized Version (For learning specific techniques)
+✔ Sliding Window (Fixed Size)
+
+Problems: 5, 6, 10, 12, 15, 38
+
+✔ Sliding Window (Variable Size)
+
+Problems: 7, 13, 22, 23, 25, 28, 34, 35
+
+✔ Prefix Sum
+
+Problems: 16, 17, 18, 19, 20, 21, 29
+
+✔ Two Pointers
+
+Problems: 24, 28, 48
+
+✔ Kadane’s Algorithm
+
+Problems: 3, 4, 11
+
+✔ Deque (Monotonic Queue)
+
+Problems: 38, 39, 40
+
+✔ Hashmap + Window
+
+Problems: 21, 22, 23, 44
+
+✔ Binary Search + Prefix
+
+Problems: 25, 49
+
+✔ Difference Array
+
+Not a subarray technique but useful
+→ Apply to range updates before subarray checks
