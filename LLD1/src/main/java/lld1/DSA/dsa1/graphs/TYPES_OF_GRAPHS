@@ -1,0 +1,321 @@
+1. First Identify the Graph Type
+A. Undirected Graph
+
+Edges work both ways.
+
+Example:
+
+1 -- 2
+
+Usually phrases like:
+
+“connected”
+“friendship”
+“roads”
+“bidirectional”
+
+Java adjacency list:
+
+graph.get(u).add(v);
+graph.get(v).add(u);
+B. Directed Graph
+
+Edges have direction.
+
+Example:
+
+1 -> 2
+
+Usually phrases like:
+
+“dependency”
+“prerequisite”
+“can go from”
+“one-way”
+
+Java:
+
+graph.get(u).add(v);
+C. Weighted Graph
+
+Edges have costs.
+
+Example:
+
+1 --(5)--> 2
+
+Keywords:
+
+shortest distance
+minimum cost
+cheapest path
+
+Use:
+
+Dijkstra
+Bellman Ford
+Floyd Warshall
+2. Recognize Problem Keywords
+Pattern 1: Traversal Problem
+
+Keywords:
+
+visit all nodes
+reachable
+connected
+path exists
+
+Use:
+
+DFS
+BFS
+DFS Template
+void dfs(int node, boolean[] vis, ArrayList<ArrayList<Integer>> graph) {
+    vis[node] = true;
+
+    for(int nbr : graph.get(node)) {
+        if(!vis[nbr]) {
+            dfs(nbr, vis, graph);
+        }
+    }
+}
+BFS Template
+Queue<Integer> q = new ArrayDeque<>();
+q.add(src);
+vis[src] = true;
+
+while(!q.isEmpty()) {
+    int node = q.remove();
+
+    for(int nbr : graph.get(node)) {
+        if(!vis[nbr]) {
+            vis[nbr] = true;
+            q.add(nbr);
+        }
+    }
+}
+Pattern 2: Connected Components
+
+Keywords:
+
+number of groups
+provinces
+islands
+disconnected graph
+
+Idea:
+Run DFS/BFS from every unvisited node.
+
+int count = 0;
+
+for(int i = 0; i < n; i++) {
+    if(!vis[i]) {
+        dfs(i, vis, graph);
+        count++;
+    }
+}
+Pattern 3: Cycle Detection
+Undirected Graph
+
+Keyword:
+
+detect loop
+cyclic graph
+
+Use DFS with parent tracking.
+
+boolean dfs(int node, int parent) {
+    vis[node] = true;
+
+    for(int nbr : graph.get(node)) {
+
+        if(!vis[nbr]) {
+            if(dfs(nbr, node)) return true;
+        }
+
+        else if(nbr != parent) {
+            return true;
+        }
+    }
+
+    return false;
+}
+Directed Graph
+
+Use:
+
+recursion stack
+Kahn’s algorithm
+
+Keywords:
+
+dependency cycle
+prerequisite impossible
+
+DFS recursion stack:
+
+boolean dfs(int node) {
+
+    vis[node] = true;
+    path[node] = true;
+
+    for(int nbr : graph.get(node)) {
+
+        if(!vis[nbr]) {
+            if(dfs(nbr)) return true;
+        }
+
+        else if(path[nbr]) {
+            return true;
+        }
+    }
+
+    path[node] = false;
+
+    return false;
+}
+Pattern 4: Topological Sort
+
+Only for DAG (Directed Acyclic Graph)
+
+Keywords:
+
+order of tasks
+prerequisites
+dependency resolution
+
+Use:
+
+Kahn’s Algorithm (BFS)
+DFS topo sort
+Kahn’s Algorithm
+Queue<Integer> q = new ArrayDeque<>();
+
+for(int i = 0; i < n; i++) {
+    if(indegree[i] == 0) {
+        q.add(i);
+    }
+}
+
+while(!q.isEmpty()) {
+    int node = q.remove();
+
+    for(int nbr : graph.get(node)) {
+
+        indegree[nbr]--;
+
+        if(indegree[nbr] == 0) {
+            q.add(nbr);
+        }
+    }
+}
+Pattern 5: Shortest Path
+Unweighted Graph
+
+Use BFS.
+
+Keywords:
+
+minimum edges
+shortest moves
+dist[src] = 0;
+
+BFS naturally gives shortest path.
+
+Weighted Graph
+
+Use Dijkstra.
+
+Keywords:
+
+minimum cost
+shortest distance
+PriorityQueue<Pair> pq =
+    new PriorityQueue<>((a,b) -> a.dist - b.dist);
+Pattern 6: Grid Problems
+
+Keywords:
+
+matrix
+island
+rotten oranges
+nearest cell
+
+Treat each cell as a graph node.
+
+Movement arrays:
+
+int[] dr = {-1, 1, 0, 0};
+int[] dc = {0, 0, -1, 1};
+
+Usually:
+
+DFS for islands
+BFS for shortest time/spread
+
+Examples:
+
+Number of Islands
+Rotten Oranges
+Flood Fill
+Pattern 7: Bipartite Graph
+
+Keywords:
+
+divide into 2 groups
+no adjacent same group
+
+Use coloring with BFS/DFS.
+
+color[nbr] = 1 - color[node];
+
+If adjacent nodes have same color → not bipartite.
+
+Pattern 8: Union Find / DSU
+
+Keywords:
+
+dynamic connectivity
+redundant connection
+merging groups
+
+Useful for:
+
+cycle detection
+Kruskal MST
+
+Core idea:
+
+parent[x] = find(parent[x]);
+Quick Recognition Table
+Problem Clue	Pattern
+Reachable/path exists	DFS/BFS
+Number of groups	Connected Components
+Dependency ordering	Topological Sort
+Dependency cycle	Directed Cycle
+Loop in undirected graph	Parent DFS
+Minimum edges	BFS
+Minimum weighted cost	Dijkstra
+Grid traversal	BFS/DFS on matrix
+Two-team division	Bipartite
+Dynamic connectivity	DSU
+Best Learning Order
+Graph Representation
+DFS
+BFS
+Connected Components
+Cycle Detection
+Topological Sort
+Grid Problems
+Shortest Path
+DSU
+MST Algorithms
+Most Important Skill
+
+When reading a graph problem, ask:
+
+Is it directed or undirected?
+Weighted or unweighted?
+Need traversal, ordering, shortest path, or grouping?
+Is there a cycle?
+Is it a grid disguised as graph?

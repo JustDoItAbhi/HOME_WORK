@@ -3,7 +3,8 @@ package lld1.DSA.practice_subarray;
 public class MaximunSubaarayOfSumK {
     public static int solve(int [] arr , int k){
         int n=arr.length;
-        if (k > n) return -1; // edge case
+        if (k > n)
+            return -1; // edge case
 
         // Sum of first window
         int windowSum = 0;
