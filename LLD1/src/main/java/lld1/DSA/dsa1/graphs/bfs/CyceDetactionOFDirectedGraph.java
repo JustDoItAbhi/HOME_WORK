@@ -1,4 +1,4 @@
-package lld1.DSA;
+package lld1.DSA.dsa1.graphs.bfs;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

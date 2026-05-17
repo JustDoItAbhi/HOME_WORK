@@ -1,0 +1,135 @@
+ Step 1 → Create frequency array
+    Step 2 → Count frequencies
+    for(int i=0;i<str.length();i++){
+    char ch=str.charAt(i);
+    freq[ch]++;
+}
+This means: freq['a']++;
+Character	Frequency
+a	        2
+b	        2
+c	        2
+Internally:
+freq[97] = 2
+freq[98] = 2
+freq[99] = 2
+
+Step 3 → Assume first character is maximum
+char result=str.charAt(0);
+int maxFreq=freq[result];
+
+"Assume first element as best answer"This is another IMPORTANT DSA pattern:
+You will use this everywhere:
+max in array
+min in array
+longest string
+highest frequency
+best score
+Pattern:answer = first element
+
+for(remaining elements){
+    if(better answer found){
+        update answer
+    }
+}
+Step 4 → Traverse again and compare
+for(int i=1;i<str.length();i++){
+    char ch=str.charAt(i);
+
+    if(freq[ch]>maxFreq){
+        maxFreq=freq[ch];
+        result=ch;
+    }
+}
+This means:
+
+If current character frequency > current max frequency
+then update answer
+For "hello":
+
+Char	Frequency
+h	    1
+e	    1
+l	    2
+o	    1
+
+start:
+result = h
+maxFreq = 1
+
+e -> 1 > 1 ? no
+l -> 2 > 1 ? YES
+result = l
+maxFreq = 2
+IMPORTANT THING YOU MUST LEARN
+
+This is NOT about strings only.
+
+This is a GENERAL DSA TEMPLATE.
+Real Pattern Hidden Behind Your Code
+Pattern 1 → Frequency Counting
+freq[element]++;
+
+Used in:
+
+strings
+arrays
+hashing
+maps
+Pattern 2 → Best Answer Tracking
+if(current > best){
+    best = current;
+}
+Used in:
+
+maximum element
+minimum element
+most frequent
+longest substring
+best profit
+How to START recognizing patterns
+
+Whenever you solve a problem, ask:
+
+Question	Pattern
+counting?	frequency array/map
+comparing best answer?	max/min tracking
+pair finding?	two pointers/hashmap
+substring?	sliding window
+graph traversal?	DFS/BFS
+Your code can be simplified mentally like this
+1. Count all characters
+2. Find character with highest count
+MASTER TRICK FOR DSA
+
+Break every problem into:
+
+INPUT
+↓
+STORE INFO
+↓
+PROCESS INFO
+↓
+RETURN ANSWER
+
+For your problem:
+
+INPUT = string
+
+STORE INFO = frequency array
+
+PROCESS = compare frequencies
+
+ANSWER = max repeated char
+That is when DSA becomes easier.
+
+You should now focus on mastering these core patterns one-by-one:
+
+Frequency Counting
+Max/Min Tracking
+Two Pointers
+Sliding Window
+HashMap Lookup
+Prefix Sum
+DFS/BFS
+Binary Search Pattern
